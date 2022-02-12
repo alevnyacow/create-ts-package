@@ -1,6 +1,6 @@
 {
   "name": "@alevnyacow/create-ts-package",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "npx TypeScript projects scaffolder",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,6 @@
     "preset": "ts-jest"
   },
   "bin": {
-    "@alevnyacow/create-ts-package": "./transpiled/index.js"
+    "@alevnyacow/create-ts-package": "./transpiled/sources/index.js"
   }
 }
