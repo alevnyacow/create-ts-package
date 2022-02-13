@@ -13,5 +13,5 @@
             "sources": ["index.ts"]
         }
     },
-    "include": ["sources", "resources"]
+    "include": ["sources"]
 }

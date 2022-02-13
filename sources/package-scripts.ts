@@ -1,4 +1,8 @@
 /* eslint-disable camelcase */
+
+/**
+ * Describes npm scripts needed in package.
+ */
 export const scripts = {
     test: "jest",
     clean_transpiled: "del-cli --force ./transpiled",
