@@ -1,15 +1,17 @@
 {
   "name": "@alevnyacow/create-ts-package",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "npx TypeScript projects scaffolder",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "clean_transpiled": "del-cli --force ./transpiled",
+    "clean_root_level_files_data": "del-cli --force ./transpiled/root-level-files/data",
+    "copy_root_level_files_data": "copyfiles -af \"./sources/root-level-files/data/*.*\" \"./transpiled/root-level-files/data\"",
     "format": "prettier --config .prettierrc --write sources/*",
     "lint": "eslint sources/**/*.ts --ext .ts",
     "check": "npm run lint && npm run test",
-    "build": "npm run clean_transpiled && tsc"
+    "build": "npm run clean_transpiled && tsc && npm run clean_root_level_files_data && npm run copy_root_level_files_data"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
+    "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
     "eslint": "^8.9.0",
     "jest": "^27.5.1",
@@ -36,5 +39,5 @@
   "jest": {
     "preset": "ts-jest"
   },
-  "bin": "./transpiled/sources/index.js"
+  "bin": "./transpiled/index.js"
 }

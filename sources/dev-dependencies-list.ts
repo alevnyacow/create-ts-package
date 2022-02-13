@@ -1,3 +1,6 @@
+/**
+ * Describes development dependencies needed in package.
+ */
 export const devDependencies = [
     "@types/jest",
     "@typescript-eslint/eslint-plugin",
