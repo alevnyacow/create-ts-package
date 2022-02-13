@@ -9,5 +9,6 @@ export const scripts = {
     format: "prettier --config .prettierrc --write sources/*",
     lint: "eslint sources/**/*.ts --ext .ts",
     check: "npm run lint && npm run test",
-    build: "npm run clean_transpiled && tsc"
+    build: "npm run clean_transpiled && tsc",
+    execute: "npm run build && node transpiled/index.js"
 };
