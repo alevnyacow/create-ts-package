@@ -39,9 +39,10 @@ function installDependencies() {
 }
 
 /**
- * Modifies package manifest with scripts described in "package-scripts" module.
+ * Modifies package manifest with scripts described in "package-scripts" module
+ * and sets main and types sections.
  */
-function addScripts() {
+function configureManifest() {
     readFile(`./${packageName}/package.json`, (err, buffer) => {
         if (err) {
             throw err;
@@ -49,6 +50,8 @@ function addScripts() {
 
         const packageManifest = JSON.parse(buffer.toString());
         packageManifest["scripts"] = scripts;
+        packageManifest["main"] = "transpiled/index.js";
+        packageManifest["types"] = "transpiled/index.d.ts";
 
         writeFileSync(
             `./${packageName}/package.json`,
@@ -75,8 +78,8 @@ function main() {
     prepareFilesystem();
     console.log("Installing dependencies...");
     installDependencies();
-    console.log("Adding package scripts...");
-    addScripts();
+    console.log("Configuring package manifest...");
+    configureManifest();
     console.log("Adding configuration files...");
     copyRootFiles();
     console.log("Finished.");
