@@ -17,7 +17,16 @@
     "type": "git",
     "url": "git+https://github.com/alevnyacow/create-ts-package.git"
   },
-  "keywords": [],
+  "keywords": [
+    "scaffolder", 
+    "typescript", 
+    "npx", 
+    "scaffold",
+    "package", 
+    "jest", 
+    "eslint", 
+    "prettier" 
+  ],
   "author": "alevnyacow",
   "license": "MIT",
   "bugs": {
