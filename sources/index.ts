@@ -11,27 +11,11 @@ import { rootFilesContent } from "./root-level-files";
 const [, , packageName] = process.argv;
 
 /**
- * Creates package folder, "sources" folder, "tests" folder for new package
- * and creates dummy index.ts and dummy test files.
+ * Creates package folder, initializes npm package and installs
+ * required dependencies.
  */
-function prepareFilesystem() {
+function createPackageBase() {
     mkdirSync(`./${packageName}`);
-    mkdirSync(`./${packageName}/sources`);
-    writeFileSync(
-        `./${packageName}/sources/index.ts`,
-        "const answerForEverything = 42;\n\nexport { answerForEverything };"
-    );
-    mkdirSync(`./${packageName}/tests`);
-    writeFileSync(
-        `./${packageName}/tests/dummy.test.ts`,
-        'test("dummy_test", () => { expect(1).toBe(1); });'
-    );
-}
-
-/**
- * Installs dependencies described in "dev-dependencies-list" module.
- */
-function installDependencies() {
     const devDependenciesList = devDependencies.join(" ");
     execSync(
         `cd ./${packageName} && npm init -y && npm i -D ${devDependenciesList}`
@@ -73,11 +57,28 @@ function copyRootFiles() {
     });
 }
 
+/**
+ * Creates index.ts and dummy.file.ts files with
+ * required folders.
+ */
+function createAdditionalFiles() {
+    mkdirSync(`./${packageName}/sources`);
+    writeFileSync(
+        `./${packageName}/sources/index.ts`,
+        "const answerForEverything = 42;\n\nexport { answerForEverything };"
+    );
+    mkdirSync(`./${packageName}/tests`);
+    writeFileSync(
+        `./${packageName}/tests/dummy.test.ts`,
+        'test("dummy_test", () => {\n\texpect(1).toBe(1);\n});'
+    );
+}
+
 function main() {
-    console.log("Preparing filesystem...");
-    prepareFilesystem();
-    console.log("Installing dependencies...");
-    installDependencies();
+    console.log("Creating package base...");
+    createPackageBase();
+    console.log("Scaffolding sources...");
+    createAdditionalFiles();
     console.log("Configuring package manifest...");
     configureManifest();
     console.log("Adding configuration files...");

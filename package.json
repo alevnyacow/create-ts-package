@@ -1,13 +1,13 @@
 {
   "name": "@alevnyacow/create-ts-package",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "npx TypeScript projects scaffolder",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "clean_transpiled": "del-cli --force ./transpiled",
     "clean_root_level_files_data": "del-cli --force ./transpiled/root-level-files/data",
-    "copy_root_level_files_data": "copyfiles -af \"./sources/root-level-files/data/*.*\" \"./transpiled/root-level-files/data\"",
+    "copy_root_level_files_data": "copyfiles -af \"./root-level-files/*.*\" \"./transpiled/root-level-files\"",
     "format": "prettier --config .prettierrc --write sources/*",
     "lint": "eslint sources/**/*.ts --ext .ts",
     "check": "npm run lint && npm run test",
@@ -18,14 +18,14 @@
     "url": "git+https://github.com/alevnyacow/create-ts-package.git"
   },
   "keywords": [
-    "scaffolder", 
-    "typescript", 
-    "npx", 
+    "scaffolder",
+    "typescript",
+    "npx",
     "scaffold",
-    "package", 
-    "jest", 
-    "eslint", 
-    "prettier" 
+    "package",
+    "jest",
+    "eslint",
+    "prettier"
   ],
   "author": "alevnyacow",
   "license": "MIT",
@@ -48,5 +48,8 @@
   "jest": {
     "preset": "ts-jest"
   },
-  "bin": "./transpiled/index.js"
+  "bin": "./transpiled/index.js",
+  "dependencies": {
+    "@alevnyacow/get-directory-files": "^1.0.0"
+  }
 }
