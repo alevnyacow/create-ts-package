@@ -8,10 +8,8 @@
         "strict": true,
         "esModuleInterop": true,
         "allowJs": true,
-        "baseUrl": "sources",
-        "paths": {
-            "sources": ["index.ts"]
-        }
+        "noImplicitAny": true,
+        "strictNullChecks": true
     },
     "include": ["sources"]
 }
