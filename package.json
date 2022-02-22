@@ -1,6 +1,6 @@
 {
   "name": "@alevnyacow/create-ts-package",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "npx TypeScript projects scaffolder",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,6 @@
   },
   "bin": "./transpiled/index.js",
   "dependencies": {
-    "@alevnyacow/get-directory-files": "^1.0.0",
-    "dotenv": "^16.0.0"
+    "@alevnyacow/get-directory-files": "^1.0.0"
   }
 }
