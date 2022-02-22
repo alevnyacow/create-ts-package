@@ -1,6 +1,6 @@
 {
   "name": "@alevnyacow/create-ts-package",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "npx TypeScript projects scaffolder",
   "main": "index.js",
   "scripts": {
