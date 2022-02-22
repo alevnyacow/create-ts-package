@@ -1,12 +1,9 @@
 #!/usr/bin/env node
-import dotenv from "dotenv";
 import { configureManifest } from "./configure-manifest";
 import { createBaseSources } from "./create-base-sources";
 import { createPackageBase } from "./create-package-base";
 import { createRootFiles } from "./create-root-files";
 import { loggedPackageAction } from "./logged-package-action";
-
-dotenv.config();
 
 const main = () => {
     const packageCreationActions = [
