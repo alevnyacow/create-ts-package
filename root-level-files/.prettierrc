@@ -6,8 +6,6 @@
     "singleQuote": false,
     "arrowParens": "always",
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "jsxSingleQuote": false,
     "parser": "typescript",
     "useTabs": false
 }

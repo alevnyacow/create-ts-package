@@ -1,23 +1,20 @@
 /* eslint-disable no-console */
 
-const configData: Record<string, string> = {
-    LOG_CREATING_PACKAGE_BASE: "Creating package base...",
-    LOG_CREATING_BASE_SOURCES: "Creating base source files...",
-    LOG_CONFIGURING_MANIFEST: "Configuring package manifest...",
-    LOG_ADDING_ROOT_FILES: "Adding some configuration files...",
-    LOG_FINISHED_CREATION_STAGE: "Finished."
-};
+/**
+ * Procedure describing a stage of a package creating based on a package name.
+ */
+type PackageCreatingAction = (packageName: string) => void;
 
 /**
  * Simple wrapper for package creation actions with logging.
  */
 export const loggedPackageAction = (
-    action: (packageName: string) => void,
-    logTextSettingKey: string
-) => {
+    action: PackageCreatingAction,
+    message: string
+): PackageCreatingAction => {
     return (packageName: string) => {
-        console.log(configData[logTextSettingKey]);
+        console.log(message);
         action(packageName);
-        console.log(configData.LOG_FINISHED_CREATION_STAGE);
+        console.log("Finished.");
     };
 };
